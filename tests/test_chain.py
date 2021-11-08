@@ -7,8 +7,8 @@ def run_tests():
         _test_train_bad_input(order)
         _test_generate(order)
         _test_generate_from_seed(order)
-        _test_generate_from_empty_chain(order)
         _test_generate_infinite(order)
+        _test_generate_from_empty_chain(order)
     print('All Chain tests passed.')
 
 def _test_train(order):
