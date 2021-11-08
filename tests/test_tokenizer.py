@@ -1,7 +1,7 @@
 from src.parsing import discord
 
 
-def run():
+def run_tests():
     _test_tokenize_bad_input()
     _test_words()
     _test_punctuation()
