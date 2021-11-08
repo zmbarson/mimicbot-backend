@@ -58,12 +58,6 @@ def _test_generate_from_seed(order):
         assert False
     except ValueError as _: assert True
 
-def _test_generate_from_empty_chain(order):
-    try:
-        markov.Chain(order).finite()
-        assert False
-    except Exception as _: assert True
-
 def _test_generate_infinite(order):
     chain = markov.Chain(order)
     a, b  = 1, 2
@@ -75,6 +69,12 @@ def _test_generate_infinite(order):
         prev = next_
         if i > 100: break
     assert i > 100
+
+def _test_generate_from_empty_chain(order):
+    try:
+        markov.Chain(order).finite()
+        assert False
+    except Exception as _: assert True
 
 # The following test fails:
 # 
