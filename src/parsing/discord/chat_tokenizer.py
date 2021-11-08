@@ -8,7 +8,7 @@ class ChatTokenizer:
 
     """
         
-        Converts strins into an iterable of Tokens using patterns defined
+        Converts strings into an iterable of Tokens using patterns defined
         in the corresponding TokenType enumeration.
     
     """
