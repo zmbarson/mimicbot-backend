@@ -84,16 +84,16 @@ def _test_generate_from_empty_chain(order):
 #       result = [*markov.Chain.finite()]
 #       assert result == corpus
 # 
-# as the interal representation
-# of the markov.Chain (order 1) produces dictionary keys:
+# as the interal representation of the chain (order 1)
+# produces dictionary keys:
 #
 #       (True,)
 #       (1, )
 #
-# In python these are considered equal, even if they're intended to 
-# model conceptually distinct phenomenon. Hence, the Chain will 
-# aggregate the outcomes of any equivalent states attributed 
-# only to the first such equivalent state recorded by the Chain.
+# In python these are considered equal, even if the caller intended 
+# for them to model conceptually distinct phenomenon. 
+# Hence, the chain will aggregate their outcomes, attributing
+# them only to the first of such equivalent states train()ed by the model.
 #
 # Being at the mercy of duck typing for quirky edge cases is beyond 
 # the scope of this minimalist implementation, thus the Chain API specifies 
