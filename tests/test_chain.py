@@ -4,7 +4,7 @@ from src import markov
 def run_tests():
     for order in range(1, 10):
         _test_train(order)
-        _test_train_invalid_input(order)
+        _test_train_bad_input(order)
         _test_generate(order)
         _test_generate_from_seed(order)
         _test_generate_from_empty_chain(order)
@@ -16,7 +16,7 @@ def _test_train(order):
     chain.train([1, 2, 3, 4])
     chain.train([5, 6, 7, 8])
 
-def _test_train_invalid_input(order):
+def _test_train_bad_input(order):
     chain = markov.Chain(order)
     try:
         chain.train([])
