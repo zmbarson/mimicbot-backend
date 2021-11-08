@@ -34,7 +34,7 @@ def _test_train_bad_input(order):
 def _test_generate(order):
     chain = markov.Chain(order)
     chain.train([1, 2, 3, 4])
-    chain.train([1, 3, 5 ])
+    chain.train([1, 3, 5])
     possible_output = [
         [1, 3, 5],
         [1, 3, 4],
@@ -79,9 +79,9 @@ def _test_generate_from_empty_chain(order):
 # The following test fails:
 # 
 #       corpus = [True, 1, '1', (0b101, 3.141592653589793)]
-#       markov.Chain = markov.Chain(order)
-#       markov.Chain.train(corpus)
-#       result = [*markov.Chain.finite()]
+#       chain = markov.Chain(order)
+#       chain.train(corpus)
+#       result = [*chain.finite()]
 #       assert result == corpus
 # 
 # as the interal representation of the chain (order 1)
@@ -90,11 +90,11 @@ def _test_generate_from_empty_chain(order):
 #       (True,)
 #       (1, )
 #
-# In python these are considered equal, even if the caller intended 
-# for them to model conceptually distinct phenomenon. 
-# Hence, the chain will aggregate their outcomes, attributing
-# them only to the first of such equivalent states train()ed by the model.
+# Even if the caller intended for these values to model
+# conceptually distinct phenomenon, Python considers them equal,
+# hence, the chain will aggregate their outcomes under
+# the first such state train()ed by the model.
 #
-# Being at the mercy of duck typing for quirky edge cases is beyond 
+# Being at the mercy of quirky edge cases caused by duck typing is beyond 
 # the scope of this minimalist implementation, thus the Chain API specifies 
 # undefined behavior for mixed-type elements.
